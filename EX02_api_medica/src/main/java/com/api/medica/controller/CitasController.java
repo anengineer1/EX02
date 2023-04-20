@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.medica.service.CitasServiceImpl;
+import com.api.medica.service.ClientesServiceImpl;
 import com.api.medica.dto.Citas;
 
 @RestController
@@ -22,19 +23,22 @@ public class CitasController {
 	@Autowired
 	CitasServiceImpl citasServiceImpl;
 	
+	@Autowired
+	ClientesServiceImpl clientesServiceImpl;
+	
 	@GetMapping("/citas")
 	public List<Citas> listarCitas(){
 		return citasServiceImpl.listarCitas();
 	}
 	
 	@PostMapping("/citas")
-	public Citas salvarAlmacenes(@RequestBody Citas departamento) {
+	public Citas salvarCitas(@RequestBody Citas departamento) {
 		
 		return citasServiceImpl.guardarCita(departamento);
 	}
 	
 	@GetMapping("/citas/{id}")
-	public Citas almacenXID(@PathVariable(name="id") long id) {
+	public Citas citaXID(@PathVariable(name="id") long id) {
 		
 		Citas almacen_xid = new Citas();
 		
@@ -43,8 +47,14 @@ public class CitasController {
 		return almacen_xid;
 	}
 	
+	@GetMapping("/citas/cliente/{id}")
+	public List<Citas> citaXusuarioID(@PathVariable(name="id") String id) {
+
+		return citasServiceImpl.listarCitasXClientes(clientesServiceImpl.clienteXID(id));
+	}
+	
 	@PutMapping("/citas/{id}")
-	public Citas actualizarAlmacen(@PathVariable(name="id")long id,@RequestBody Citas cita) {
+	public Citas actualizarCita(@PathVariable(name="id")long id,@RequestBody Citas cita) {
 		
 		Citas almacen_seleccionado= new Citas();
 		Citas almacen_actualizado= new Citas();

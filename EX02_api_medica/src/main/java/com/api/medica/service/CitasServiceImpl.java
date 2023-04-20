@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.api.medica.dao.ICitasDAO;
 import com.api.medica.dto.Citas;
+import com.api.medica.dto.Clientes;
 
 @Service
 public class CitasServiceImpl implements ICitasService {
@@ -17,6 +18,11 @@ public class CitasServiceImpl implements ICitasService {
 	@Override
 	public List<Citas> listarCitas() { // GET
 		return this.iCitasDAO.findAll();
+	}
+	
+	@Override
+	public List<Citas> listarCitasXClientes(Clientes cliente) { // GET
+		return this.iCitasDAO.findByCliente(cliente);
 	}
 
 	@Override
