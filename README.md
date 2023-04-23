@@ -14,6 +14,16 @@ PUT
 GET
   * /api/dentista/clientes (Visualizar todos los clientes registrados: Req. 8)
   * /api/dentista/citas (Visualizar todas las citas: Req. 7)
+  * /api/dentista/{id} (Visualizar dentista)
+  
+POST
+  * /api/dentista (Crear dentista)
+  
+PUT
+  * /api/dentista/{id} (Actualizar datos dentista)
+
+DELETE
+  * /api/dentista/{id} (Borrar dentista)
   
 ## Cita
 GET
