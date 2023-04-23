@@ -56,18 +56,19 @@ public class CitasController {
 	@PutMapping("/citas/{id}")
 	public Citas actualizarCita(@PathVariable(name="id")long id,@RequestBody Citas cita) {
 		
-		Citas almacen_seleccionado= new Citas();
-		Citas almacen_actualizado= new Citas();
+		Citas cita_seleccionada= new Citas();
+		Citas cita_actualizada= new Citas();
 		
-		almacen_seleccionado= citasServiceImpl.citaXID(id);
+		cita_seleccionada= citasServiceImpl.citaXID(id);
 		
-		almacen_seleccionado.setFecha(cita.getFecha());
-		almacen_seleccionado.setCliente(cita.getCliente());
-		almacen_seleccionado.setDentista(cita.getDentista());
+		cita_seleccionada.setFecha(cita.getFecha());
+		cita_seleccionada.setDescripcion(cita.getDescripcion());
+		cita_seleccionada.setCliente(cita.getCliente());
+		cita_seleccionada.setDentista(cita.getDentista());
 		
-		almacen_actualizado = citasServiceImpl.actualizarCita(almacen_seleccionado);
+		cita_actualizada = citasServiceImpl.actualizarCita(cita_seleccionada);
 		
-		return almacen_actualizado;
+		return cita_actualizada;
 	}
 	
 	@DeleteMapping("/citas/{id}")

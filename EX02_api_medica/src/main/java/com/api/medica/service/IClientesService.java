@@ -2,8 +2,6 @@ package com.api.medica.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.api.medica.dto.Clientes;
 
 public interface IClientesService {

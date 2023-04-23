@@ -20,6 +20,9 @@ public class Citas {
 	@Column(name = "id")
 	private long id;
 	
+	@Column(name = "descripcion")
+	private String descripcion;
+	
 	@Column(name = "fecha")
 	private LocalDateTime fecha;
 	
@@ -36,13 +39,15 @@ public class Citas {
 
 	/**
 	 * @param id
+	 * @param descripcion
 	 * @param fecha
 	 * @param cliente
 	 * @param dentista
 	 */
-	public Citas(long id, LocalDateTime fecha, Clientes cliente, Dentistas dentista) {
+	public Citas(long id, String descripcion, LocalDateTime fecha, Clientes cliente, Dentistas dentista) {
 		super();
 		this.id = id;
+		this.descripcion = descripcion;
 		this.fecha = fecha;
 		this.cliente = cliente;
 		this.dentista = dentista;
@@ -103,10 +108,25 @@ public class Citas {
 	public void setDentista(Dentistas dentista) {
 		this.dentista = dentista;
 	}
+	
+	/**
+	 * @return the descripcion
+	 */
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	/**
+	 * @param descripcion the descripcion to set
+	 */
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
 	@Override
 	public String toString() {
-		return "Citas [id=" + id + ", fecha=" + fecha + ", cliente=" + cliente + ", dentista=" + dentista + "]";
+		return "Citas [id=" + id + ", descripcion=" + descripcion + ", fecha=" + fecha + ", cliente=" + cliente
+				+ ", dentista=" + dentista + "]";
 	}
 
 }

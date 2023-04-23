@@ -18,6 +18,7 @@ PRIMARY KEY (dni)
 
 CREATE TABLE citas (
 id int NOT NULL AUTO_INCREMENT,
+descripcion NVARCHAR(255) DEFAULT NULL,
 fecha DATETIME DEFAULT NULL,
 idcliente VARCHAR(8) NOT NULL,
 iddentista VARCHAR(8) NOT NULL,
@@ -39,7 +40,7 @@ INSERT INTO dentistas (dni, nomapels, email) VALUES ('77758697', 'Carbon el Borr
 UNLOCK TABLES;
 
 LOCK TABLES citas WRITE;
-INSERT INTO citas (fecha, idcliente, iddentista) VALUES ('2023-04-20 12:30:00', '23458697', '67458697');
-INSERT INTO citas (fecha, idcliente, iddentista) VALUES ('2023-04-20 11:30:00', '29384750', '99458697');
-INSERT INTO citas (fecha, idcliente, iddentista) VALUES ('2023-04-20 10:30:00', '23458690', '77758697');
+INSERT INTO citas (fecha, descripcion, idcliente, iddentista) VALUES ('2023-04-20 12:30:00', 'Dolor de muela', '23458697', '67458697');
+INSERT INTO citas (fecha, descripcion, idcliente, iddentista) VALUES ('2023-04-20 11:30:00', 'Hiperdentia', '29384750', '99458697');
+INSERT INTO citas (fecha, descripcion, idcliente, iddentista) VALUES ('2023-04-20 10:30:00', 'Revisión', '23458690', '77758697');
 UNLOCK TABLES;
