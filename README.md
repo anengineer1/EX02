@@ -42,7 +42,7 @@ DELETE
 
 ## Diagrama ER
 
-![https://github.com/anengineer1/EX02/blob/master/Diagrama_ER.png?raw=true](Diagrama_ER)
+![Diagrama_ER.png](Diagrama_ER.png)
 
 ## Ejemplos curl
 
