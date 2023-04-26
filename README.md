@@ -39,3 +39,63 @@ PUT
 
 DELETE
   * /api/cita/{id} (Requerimiento 5)
+
+## Diagrama ER
+
+![diagrama_ER.png](Diagrama_ER)
+
+## Ejemplos curl
+
+  * GET cita 3
+
+        curl -H "Content-type: application/json" -X GET localhost:8181/api/citas/3 | jq
+        	
+        	{
+        	"id": 3,
+        	"descripcion": "Revisión",
+
+            "fecha": "2023-04-20T10:30:00",
+              "cliente": {
+                "dni": "23458690",
+                "nomapels": "Carlos Montes",
+                "email": "cmontes@gmail.com"
+              },
+              "dentista": {
+                "dni": "77758697",
+                "nomapels": "Carbon el Borracho",
+                "email": "cborrachodental.com"
+              }
+            }
+
+  * PUT de un cliente
+
+        curl -H "Content-type: application/json" -X PUT -d '{"nomapels": "reverendo joe"}' localhost:8181/api/cliente/23458690 | jq
+          
+          {
+          "dni": "23458690",
+          "nomapels": "reverendo joe",
+          "email": null
+        }
+
+  * PUT de una cita
+  
+		curl -H "Content-type: application/json" -X PUT -d '{"descripcion": "Dolor agudo", "fecha": "2023-04-20T10:30:00", "cliente": {"dni": "23458690"}, "dentista": {"dni": "77758697"}}' localhost:8181/api/citas/3 | jq
+		
+		{
+
+        "id": 3,
+          "descripcion": "Dolor agudo",
+          "fecha": "2023-04-20T10:30:00",
+          "cliente": {
+            "dni": "23458690",
+            "nomapels": null,
+            "email": null
+          },
+          "dentista": {
+            "dni": "77758697",
+            "nomapels": null,
+            "email": null
+          }
+        }
+
+  * POST cliente
