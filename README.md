@@ -42,7 +42,7 @@ DELETE
 
 ## Diagrama ER
 
-![diagrama_ER.png](Diagrama_ER)
+![./diagrama_ER.png](Diagrama_ER)
 
 ## Ejemplos curl
 
@@ -97,5 +97,3 @@ DELETE
             "email": null
           }
         }
-
-  * POST cliente
